@@ -13,7 +13,7 @@ jobs:
           persist-credentials: false
 
       - name: Install and Build # 下载依赖 打包项目
-        run: |
+        run:
           npm install
         # npm run lint
           npm run build
