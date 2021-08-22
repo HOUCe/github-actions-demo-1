@@ -1,6 +1,12 @@
 'use strict'
 const { spawnSync } = require('child_process')
 
+function getListFromShell (shell, options = { shell: true }) {
+  const result = spawnSync(shell, options)
+
+  return result
+}
+
 function getDiffFiles (commit = 'HEAD', anotherCommit = 'origin/master') {
   const shell = `git --no-pager diff ${commit} ${anotherCommit} --stat --name-only '**/*.js'`
   const diffFiles = getListFromShell(shell)
