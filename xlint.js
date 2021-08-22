@@ -4,7 +4,7 @@ const { spawnSync } = require('child_process')
 function getListFromShell (shell, options = { shell: true }) {
   const result = spawnSync(shell, options)
 
-  return result
+  return result.stdout.toString().split('\n')
 }
 
 function getDiffFiles (commit = 'HEAD', anotherCommit = 'origin/master') {
